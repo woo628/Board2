@@ -14,4 +14,8 @@
 	 	
 	</select>
   
+	<insert id ="insertMenu">
+		INSERT INTO MENUS VALUES (#{menu_id},#{menu_name},#{menu_seq})
+	</insert>
+	  
 </mapper>

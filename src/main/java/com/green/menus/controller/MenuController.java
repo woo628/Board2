@@ -28,6 +28,25 @@ public class MenuController {
 		return "menus/list";
 	}
 	
+	@RequestMapping("/Menus/WriteForm")
+	public String writeform() {
+		return "menus/write";
+	}
+	
+	@RequestMapping("/Menus/Write")
+//	public String write(String menu_id, String menu_name, int menu_seq) {
+	public String write(MenuDTO menuDTO) {
+		
+		// 넘어온 값
+		System.out.println(menuDTO.getMenu_id());
+		System.out.println(menuDTO.getMenu_name());
+		System.out.println(menuDTO.getMenu_seq());
+		
+		// db 저장
+		menuMapper.insertMenu(menuDTO);
+		
+		return "none";
+	}
 	
 }
 

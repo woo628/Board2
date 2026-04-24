@@ -8,8 +8,9 @@
 <title>Insert title here</title>
 <link rel="shortcut icon" href="/img/favicon1.png" type="image/x-icon">
 <link href="/css/common.css" rel="stylesheet"/>
-<style></style>
+<style>
 
+</style>
 </head>
 <body>
 	<main>
