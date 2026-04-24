@@ -8,7 +8,7 @@
 	<select id="getMenuList"
 	        resultType="com.green.menus.dto.MenuDTO">
 			
-	SELECT     MENU_ID, MENu_NAME, MENU_SEQ
+	SELECT     MENU_ID, MENU_NAME, MENU_SEQ
 	 FROM      MENUS
 	 ORDER BY  MENU_SEQ ASC
 	 	
@@ -17,5 +17,13 @@
 	<insert id ="insertMenu">
 		INSERT INTO MENUS VALUES (#{menu_id},#{menu_name},#{menu_seq})
 	</insert>
+	
+	<delete id="deleteMenu">
+	 	DELETE FROM MENUS WHERE menu_id = #{menu_id}
+	</delete>
+	
+	<update id="updateMenu">
+		UPDATE MENUS SET  menu_name = #{menu_name}, menu_seq = #{menu_seq} WHERE menu_id = #{menu_id}
+	</update>
 	  
 </mapper>
