@@ -15,7 +15,9 @@ public interface MenuMapper {
 
 	void deleteMenu(String menu_id);
 
-	void updateMenu(String menu_id);
+	void updateMenu(MenuDTO menuDTO);
+
+	MenuDTO getMenu(MenuDTO menuDTO);
 	
 }
 

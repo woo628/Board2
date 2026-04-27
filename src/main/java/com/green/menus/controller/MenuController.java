@@ -15,6 +15,9 @@ import com.green.menus.mapper.MenuMapper;
 public class MenuController {
 	
 	@Autowired
+//	container 에 미리 new 된 component 를 찾아서 meunMapper 변수에 저장 - 객체 타입으로 찾아서 연결
+//  @Qulified() - 객체 이름으로 찾아서 연결
+//  최근에는 생성자를 이용한 방식 사용
 	private  MenuMapper  menuMapper;
 	
 	// 메뉴 목록 조회  http://localhost:9090/Menus/List
@@ -54,26 +57,35 @@ public class MenuController {
 	}
 	
 	@RequestMapping("/Menus/Delete")
-//	public String delete(@RequestParam("menu_id") String menu_id, Model model) {
+//  public String delete(MenuDTO menuDTO)
+//	public String delete(String menu_id) {
 	public String delete(@RequestParam("menu_id") String menu_id) {
 		
-		System.out.println(menu_id);
+		// MenuDTO menuDTO = new MenuDTO(menu_id,null,0);
+		// menuMapper.deleteMenu(menuDTO);
+	
 		menuMapper.deleteMenu(menu_id);
 		
-	//	List<MenuDTO> menuList = menuMapper.getMenuList();
-	//	model.addAttribute("menuList",menuList);
-		
-	//	return "menus/list";
 		return "redirect:/Menus/List";
 	}
 	
-	@RequestMapping("/Menus/Update")
-	public String update(@RequestParam("menu_id") String menu_id) {
+	// 수정할 자료 조회
+	@RequestMapping("/Menus/UpdateForm")
+	public String updateform(MenuDTO menuDTO, Model model) {
 		
-		System.out.println(menu_id);
-		menuMapper.updateMenu(menu_id);
+		// 수정할 자료를 db에서 검색 (수정할 정보가 담긴 menu)
+  		MenuDTO menu = menuMapper.getMenu(menuDTO);
+  		model.addAttribute("menu",menu);
 		
 		return "menus/update";
+	}
+	
+	// 넘어온자료로 db수정
+	@RequestMapping("/Menus/Update")
+	public String update(MenuDTO menuDTO) {
+		menuMapper.updateMenu(menuDTO);
+		
+		return "redirect:/Menus/List";
 	}
 	
 }

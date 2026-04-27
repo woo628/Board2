@@ -9,7 +9,17 @@
 <link rel="shortcut icon" href="/img/favicon1.png" type="image/x-icon">
 <link href="/css/common.css" rel="stylesheet"/>
 <style>
-
+ table {width: 100%;}
+ td {padding: 5px; text-align: center;}
+tr:first-child {
+	background-color: black; color: white; td {border : 1px solid white;}
+}
+tr:nth-of-type(2) td {
+	text-align: right; padding-right: 20px;
+}
+main {
+	margin-bottom: 150px;
+}
 </style>
 </head>
 <body>
@@ -37,7 +47,7 @@
 	   	<td>${menu.menu_name}</td>
 	   	<td>${menu.menu_seq}</td>
 	   	<td><a href="/Menus/Delete?menu_id=${menu.menu_id}">삭제</a></td>
-	   	<td><a href="/Menus/Update?menu_id=${menu.menu_id}">수정</a></td>
+	   	<td><a href="/Menus/UpdateForm?menu_id=${menu.menu_id}">수정</a></td>
 	   </tr>
 	   </c:forEach>
 	  </table>

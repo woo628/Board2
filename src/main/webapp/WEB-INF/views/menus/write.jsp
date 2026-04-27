@@ -7,6 +7,26 @@
 <title>Insert title here</title>
 <link rel="shortcut icon" href="/img/favicon1.png" type="image/x-icon">
 <link href="/css/common.css" rel="stylesheet"/>
+<style>
+table {
+	width: 100%;
+}
+td {
+	padding: 5px 10px; text-align: center;
+&:nth-of-type(1) {
+	background: black; color: white; border: 1px solid white;
+ }
+}
+tr:last-child> td {
+	background: white; border: 1px solid black;
+}
+input[type=text] {
+	width: 100%;
+}
+input[type=button],input[type=submit] {
+	width: 100px;
+}
+</style>
 </head>
 <body>
 	<main>
